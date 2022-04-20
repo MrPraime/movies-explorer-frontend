@@ -1,0 +1,19 @@
+ .seach__icon {
+     padding-left: 19px;
+     width: 22px;
+     height: 22px;
+     margin: auto 0;
+ }
+
+
+@media screen and (max-width: 470px) { 
+    .seach__icon {
+
+	} 
+}
+
+@media screen and (max-width: 320px) { 
+    .seach__icon {
+        display: none;
+	} 
+}

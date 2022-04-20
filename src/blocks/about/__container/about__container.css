@@ -1,0 +1,16 @@
+.about__container {
+    display: flex;
+    flex-direction: column;
+    max-width: 550px;
+    padding-top: 70px;
+}
+
+@media screen and (max-width: 320px) { 
+	.about__container { 
+        padding-top: 60px;
+	} 
+    
+   .about__container:last-child { 
+        padding-top: 56px;
+	} 
+} 

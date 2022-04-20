@@ -1,0 +1,15 @@
+.profile__tittle {
+    margin-top: 74px;
+    margin-bottom: 123px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #000000;
+}
+
+

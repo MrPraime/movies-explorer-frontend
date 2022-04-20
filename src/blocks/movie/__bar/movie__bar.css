@@ -1,0 +1,10 @@
+.movie__bar {
+    width: 364px;
+    height: 68px;
+}
+
+@media screen and (max-width: 320px) { 
+    .movie__bar {
+        width: 300px;
+    }
+ }

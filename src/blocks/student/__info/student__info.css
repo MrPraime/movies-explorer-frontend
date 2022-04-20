@@ -1,0 +1,6 @@
+.student__info {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    
+}

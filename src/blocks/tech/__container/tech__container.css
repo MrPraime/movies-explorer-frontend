@@ -1,0 +1,14 @@
+.tech__container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1140px;  
+    padding-top: 90px;
+    align-self: center;
+}
+
+
+@media screen and (max-width: 320px) { 
+	.tech__container { 
+        padding-top: 60px;
+	} 
+}

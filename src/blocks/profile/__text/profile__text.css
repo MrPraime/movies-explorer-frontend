@@ -1,0 +1,12 @@
+.profile__text { 
+font-style: normal;
+font-weight: 500;
+font-size: 11px;
+line-height: 13px;
+/* identical to box height */
+margin: 0;
+align-self: center;
+
+color: #000000;
+
+}

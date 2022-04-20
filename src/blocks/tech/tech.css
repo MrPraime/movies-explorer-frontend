@@ -1,0 +1,22 @@
+.tech {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    background: #F5F5F5;
+    margin-top: 110px;
+    max-width: 1200px
+}
+
+@media screen and (max-width: 768px) { 
+	.tech    { 
+        font-size: 12px;
+        line-height: 15px;
+        padding-top: 22px;
+	} 
+} 
+
+@media screen and (max-width: 320px) { 
+	.tech    { 
+        background: transparent;
+	} 
+} 

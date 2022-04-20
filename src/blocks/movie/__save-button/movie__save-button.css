@@ -1,0 +1,22 @@
+.movie__save-button {
+    position: relative;
+    top: -36px;
+    right: -324px;
+    width: 30px;
+    height: 30px;
+    background: white;
+    border: none;
+    border-radius: 50%;
+
+    background-image: url(../../../images/movie/bookmate2.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+@media screen and (max-width: 320px) { 
+    .movie__save-button {
+        top: 29px;
+        right: -262px;
+    }
+ }

@@ -1,0 +1,21 @@
+.student__link_type_portfolio {
+    text-decoration: none;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 50px;
+    letter-spacing: -0.04em;
+    color: #000000;
+}
+
+
+.student__link_type_portfolio:hover {
+    opacity: 0.7;
+}
+
+@media screen and (max-width: 320px) { 
+	.student__link_type_portfolio { 
+        font-size: 18px;
+        line-height: 28px;
+	} 
+} 
