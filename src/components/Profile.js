@@ -8,12 +8,12 @@ export default function Profile() {
             <fieldset className="profile__form"> 
                 <div className="profile__bar-name">
                     <p className="profile__text">Имя</p>
-                    <input type="text" className="profile__input" name="name" placeholder="Антон" id="name-input" required minLength="2" maxLength="40" value=""/> 
+                    <input type="text" className="profile__input" name="name" placeholder="Антон" id="name-input" required minLength="2" maxLength="40" /> 
                    <span className="name-input-error popup__input-error"></span>  
                 </div>
                 <div className="profile__bar-name">
                     <p className="profile__text">Email</p>
-                    <input type="email" className="profile__input" name="email" placeholder="12345@ya.ru" id="email-input" required minLength="2" maxLength="40" value=""/> 
+                    <input type="email" className="profile__input" name="email" placeholder="12345@ya.ru" id="email-input" required minLength="2" maxLength="40" /> 
                <span className="about-input-error popup__input-error"></span>  
             </div>
             </fieldset> 

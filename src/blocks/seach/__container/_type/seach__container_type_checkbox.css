@@ -3,6 +3,12 @@
     flex-direction: row;
 }
 
+@media screen and (max-width: 590px) { 
+    .seach__container_type_checkbox {
+        margin-top: 50px;
+    }
+    
+}
 
 
 @media screen and (max-width: 320px) { 

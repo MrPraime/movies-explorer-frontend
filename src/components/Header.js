@@ -3,13 +3,11 @@ import { Link, useLocation } from 'react-router-dom';
 import logo from '../images/header/logo.svg';
 import Menu from './Menu';
 
-// const location = useLocation(); 
-// const islocationBasic = location.pathname === "/"; 
 
 function Header(props) {
     const { pathname } = useLocation();
 
-   return (
+return (
     <header  className={'header'}>
 
     {pathname == '/' ? ( 
@@ -25,42 +23,42 @@ function Header(props) {
                        </Link>
                    </div>
                    </> 
-        ) : ( 
-            (pathname !== '/sign-up' || pathname !== '/sign-in') &&
-            <div className="header__container">
+        ) :  ( 
+            (pathname !== '/profile' || pathname !== '/movies' || pathname !== "saved-movies") && 
+           
 
-                
-            <Link to={"/"}>
-            <img src={logo} alt="Логотип" className="header__logo" />
-        </Link>
-                <Menu       
-                    isLoggedIn={props.isLoggedIn}
-                />
-</div>
-        )} 
+                <>            <div className="header__container_left">
+                <Link to={"/"}>
+                <img src={logo} alt="Логотип" className="header__logo" />
+                </Link>
+                <Link to={"movies"} className="header__text">
+                            <p>Фильмы</p>
+                </Link>
+                <Link to={"saved-movies"} className="header__text">
+                            <p>Сохранённые фильмы</p>
+                </Link>
+            </div>
 
-        {/* <Link to={"/"}>
-        <img src={logo} alt="Логотип" className="header__logo"/> 
-        </Link>
+<div className="header__container">
 
-        <div className="header__container">
-            <Link to={"sign-up"} className="header__singUp">
-                <p>Регистрация</p>
+            <div className="header__container_right">
+            <Link to={"profile"} className="header__account">
+                <button className="header__account">Аккаунт</button>
             </Link>
-            <Link to={"sign-in"} className="header__singIn">
-                <p>Войти</p>
-          </Link>
-        </div> */}
-
-        {/* {
-                (pathname !== '/sign-up' || pathname !== '/sign-in') &&
-                <Menu       
+            <Menu       
                     isLoggedIn={props.isLoggedIn}
                 />
-            } */}
+            </div>
+</div>
+        </>
+
+
+
+        )} 
 
 </header>
    );
+
  }
   
 export default Header;

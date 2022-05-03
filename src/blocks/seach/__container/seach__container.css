@@ -5,12 +5,16 @@
     height: 70px;
     background: #F9F9F9;
     border-radius: 9px;
-    justify-content: space-between;
 
  }
 
 
+ @media screen and (max-width: 590px) { 
+   .seach__container {
+      flex-direction: column;
 
+ } 
+}
  
  @media screen and (max-width: 320px) { 
     .seach__container {
@@ -21,3 +25,15 @@
         background: none;
 	} 
 }
+
+
+ /* .seach__container {
+
+display: grid;
+grid-template-rows: 100%;
+grid-template-columns: 5% 70% 4% 1% 5% 10%;
+max-width: 1140px;
+height: 70px;
+background: #F9F9F9;
+border-radius: 9px;
+} */

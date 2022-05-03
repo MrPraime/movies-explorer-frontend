@@ -1,5 +1,5 @@
  .seach__input {
-     max-width: 750px;
+     width: 750px;
      border: none;
      background: #F9F9F9;
  }
@@ -13,6 +13,13 @@
     flex-direction: row;
 }
 
+@media screen and (max-width: 600px) { 
+    .seach__input {
+        width: 278px;
+        padding: 25px 0 25px 13px;
+	} 
+ }
+ 
  @media screen and (max-width: 320px) { 
     .seach__input {
         width: 278px;

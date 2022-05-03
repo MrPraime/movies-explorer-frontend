@@ -3,23 +3,26 @@ import seach_icon from '../images/seach/seach_icon.svg';
 
 function SeachForm() {
     return (
-    <div className="seach">
-        <div className="seach__container">
-            <div className='seach__container_type_input'>
-                <div className='fas'>
-                <img src={seach_icon} alt="Иконка поиска" className="seach__icon"/> 
-                <input type="text"  placeholder="Фильм" id="text-input" className="seach__input" minLength="2" maxLength="40"/> 
+     
+            <div className="search-form">
+              <div className="search-form__filter">
+                <img src={seach_icon} alt="Поиск" className="search-form__icon" />
+                <input className="search-form__input" placeholder="Фильм" type="text" required />
+                <div className="search-form__button-form">
+                 <button className="seach__button"></button>
                 </div>
-                <button className="seach__button"></button>
+                <div className="search-form__line"></div>
+                <div className="search-form__box">
+                <input type="checkbox" className="seach__checkbox"/> 
+                  <br></br>
+                  <p className="seach__text">Короткометражки</p>
+                </div>
+              </div>
             </div>
-                <div className='seach__container_type_checkbox'>
-                    <div className="seach__vertical-line"></div>
-                    <input type="checkbox" className="seach__checkbox"/> 
-                    <p className="seach__text">Короткометражки</p>
-                </div>
-        </div>
-    </div>
-    );
+      
+      );
+
+    
   }
    
  export default SeachForm;

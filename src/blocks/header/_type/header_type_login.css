@@ -5,8 +5,14 @@
     flex-direction: column;
 }
 
-@media screen and (max-width: 320px) { 
+@media screen and (max-width: 470px) { 
 	.header_type_login  { 
         align-items: center;
 	} 
 } 
+
+/* @media screen and (max-width: 320px) { 
+	.header_type_login  { 
+        align-items: center;
+	} 
+}  */

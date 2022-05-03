@@ -47,11 +47,11 @@ export default function Register() {
         </button>
       </form>
 
-    <div className="login__text">Уже зарегистрированы?
+    <p className="login__text">Уже зарегистрированы?
     <Link to={"sign-in"} >
         <button className="login__button">Войти</button>
     </Link>
-    </div>
+    </p>
     </div>
     )
 }

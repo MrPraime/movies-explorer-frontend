@@ -9,7 +9,7 @@ export default function Login() {
       <div className="header header_type_login">
           <img src={logo} className="header__logo header__logo_auth-page"></img>
 
-          <div className="profile__tittle profile__tittle_auth-page">Рады видеть!</div>
+          <h1 className="profile__tittle profile__tittle_auth-page">Рады видеть!</h1>
       </div>
       <form className="login__form">
       <span className="email-input-error popup__input-error"></span>
@@ -39,12 +39,12 @@ export default function Login() {
         </button>
       </form>
 
-    <div className="login__text"> 
+    <p className="login__text"> 
     Ещё не зарегистрированы?
       <Link to={"sign-up"} >
           <button className="login__button">Регистрация</button>
       </Link>
-    </div>
+    </p>
     </div>
     )
 }

@@ -1,5 +1,4 @@
 .about__diagram-time_short {
-
         font-style: normal;
         font-weight: 400;
         font-size: 14px;
@@ -7,12 +6,9 @@
         text-align: center;
         
         color: #FFFFFF;
-    
-
-    
-
         color: white;
         padding: 9px 14px;
         margin: 0 auto;
+        white-space: nowrap;
 
 }

@@ -4,13 +4,19 @@
     width: 900px;
     justify-content: space-between;
 }
-
-@media screen and (max-width: 520px) { 
+@media screen and (max-width: 590px) { 
     .seach__container_type_input {
-
-        width: 500px;
+        max-width: 545px;
+        margin-top: 13px;
     }
  }
+
+
+/* @media screen and (max-width: 520px) { 
+    .seach__container_type_input {
+        width: 500px;
+    }
+ } */
 
 
 @media screen and (max-width: 320px) { 

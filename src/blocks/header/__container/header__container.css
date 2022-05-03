@@ -1,12 +1,16 @@
 .header__container {
     display: flex;
     flex-direction: row;
+    justify-content: end;
+    width: 1140px;
 }
 
 @media screen and (max-width: 768px) { 
     .header__container {
 
-        justify-content: space-between;
-        width: 1140px;
 	} 
+}
+
+.header__container_left {
+    display: flex;
 }
