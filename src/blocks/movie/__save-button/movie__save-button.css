@@ -1,7 +1,5 @@
 .movie__save-button {
-    position: relative;
-    top: -36px;
-    right: -324px;
+    margin-left: 139px;
     width: 30px;
     height: 30px;
     background-color: E8E8E8;
@@ -24,16 +22,27 @@
     }
  }
 
-@media screen and (max-width: 384px) { 
+ 
+
+ /* @media screen and (max-width: 386px) { 
     .movie__save-button {
         top: -43px;
         right: -256px;
     }
  }
 
+
+
 @media screen and (max-width: 320px) { 
     .movie__save-button {
-        top: -43px;
-        right: -262px;
+        top: -38px;
+        right: -259px;
     }
- }
+ } */
+
+
+ @media screen and (max-width: 362px) { 
+    .movie__save-button{
+        margin-left: 88px;
+    }
+}

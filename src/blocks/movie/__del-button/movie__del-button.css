@@ -1,14 +1,11 @@
 .movie__del-button {
-    position: relative;
-    top: -36px;
-    right: -324px;
+    margin-left: 139px;
     width: 30px;
     height: 30px;
     background-color: E8E8E8;
     border: none;
     border-radius: 50%;
 
-    /* background-image: url(../../../images/movie/bookmate2.svg); */
     background-image: url(../../../images/movie/close-button.svg);
     background-repeat: no-repeat;
     background-position: center;
@@ -20,9 +17,8 @@
 }
 
 
-@media screen and (max-width: 320px) { 
+ @media screen and (max-width: 362px) { 
     .movie__del-button {
-        top: 29px;
-        right: -262px;
+        margin-left: 88px;
     }
- }
+}

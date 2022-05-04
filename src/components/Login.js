@@ -9,7 +9,7 @@ export default function Login() {
       <div className="header header_type_login">
           <img src={logo} className="header__logo header__logo_auth-page"></img>
 
-          <h1 className="profile__tittle profile__tittle_auth-page">Рады видеть!</h1>
+          <h2 className="profile__tittle profile__tittle_auth-page">Рады видеть!</h2>
       </div>
       <form className="login__form">
       <span className="email-input-error popup__input-error"></span>

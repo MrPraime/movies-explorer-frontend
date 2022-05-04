@@ -3,7 +3,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-self: center;
-
+    margin: 0;
     width: 301px;
     margin-bottom: 30px;
 }

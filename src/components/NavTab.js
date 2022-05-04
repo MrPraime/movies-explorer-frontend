@@ -1,7 +1,7 @@
 
 export default function NavTab() {
     return (
-<div className="content__button-container">
+<nav className="content__button-container">
 
 <a href='#about-project'
             className='content__button'
@@ -21,6 +21,6 @@ Tехнологии</a>
  Студент
 </a>
 
-</div>
+</nav>
     )
 }

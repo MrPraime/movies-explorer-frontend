@@ -5,12 +5,12 @@ import logo from '../images/student/my photo.jpg';
 function Student() {
    return (
     <div className="studen" id='student'>
-    <h1 className="page__title">Студент</h1>
+    <h2 className="page__title">Студент</h2>
     <div className="student__container">
         <div className="student__info">
-            <div className="student__name">Антон</div>
-            <div className="student__job">Джуниор Фронтенд, 28 лет</div>
-            <div className="student__about">Заполню потом</div>
+            <h5 className="student__name">Антон</h5>
+            <h6 className="student__job">Джуниор Фронтенд, 28 лет</h6>
+            <p className="student__about">Заполню потом</p>
         </div>
         <img src={logo} alt="Моё фото" className="student__photo"/> 
     </div>

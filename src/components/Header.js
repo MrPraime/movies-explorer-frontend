@@ -39,7 +39,6 @@ return (
                 </Link>
             </div>
 
-<div className="header__container">
 
             <div className="header__container_right">
             <Link to={"profile"} className="header__account">
@@ -49,7 +48,7 @@ return (
                     isLoggedIn={props.isLoggedIn}
                 />
             </div>
-</div>
+
         </>
 
 

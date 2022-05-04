@@ -5,6 +5,7 @@
     line-height: 22px;
     color: #000000;
     mix-blend-mode: normal;
+    margin: 0;
 }
 
 @media screen and (max-width: 768px) { 

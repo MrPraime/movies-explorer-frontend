@@ -246,12 +246,27 @@
       }
   }
 
+  @media screen and (max-width: 375px) {
+    .search-form__button-form {
+    margin: -56px -42px 4px 230px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .search-form__button-form {
+  margin: -56px -42px 4px 177px;
+}
+}
+
   @media screen and (max-width: 320px) {
   
     .search-form__filter {
-        width: 290px;
+        width: 100%;
     }
 
+    .search-form__input {
+      width: 150px;
+    }
 
     .search-form__box {
         margin: 0 auto;

@@ -16,16 +16,23 @@
   .hamburger {
     margin-top: 5px;
     display: block;
-    position: fixed;
+    position: absolute;
     left: 90%;
+    top: 1%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .hamburger {
+    left: 87%;
     top: 1%;
   }
 }
 
 @media screen and (max-width: 320px) {
   .hamburger {
-    position: fixed;
-    left: 88%;
+    position: absolute;
+    left: 86%;
     top: 1%;
   }
 }
@@ -52,7 +59,6 @@
   left: 0%;
   right: -100%;
   bottom: 0;
-  overflow: hidden;
   transition: all 0.3s ease-in-out;
   transform: scale(0);
 }
@@ -65,7 +71,7 @@
 
 @media screen and (max-width: 422px) {
   .nav {
-    width: 237px;
+    width: 351px;
   }
 }
 
@@ -77,7 +83,6 @@
 
 .nav-wrapper {
   position: relative;
-  overflow: hidden;
   overflow-y: auto;
   height: 100%;
 }
@@ -142,6 +147,17 @@ nav a:hover:before {
     z-index: 4;
     top: 0;
     left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  #toggle:checked + .hamburger + .nav {
+    transform: translateX(184px);
+    z-index: 4;
+    top: 0;
+    left: -174px;
     right: 0;
     bottom: 0;
   }
