@@ -144,11 +144,38 @@ nav a:hover:before {
 @media screen and (max-width: 768px) {
   #toggle:checked + .hamburger + .nav {
     transform: translateX(184px);
+    position: absolute;
     z-index: 4;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    width: 583px;
+  }
+}
+@media screen and (max-width: 767px) {
+  #toggle:checked + .hamburger + .nav {
+    position: fixed;
+
+  }
+}
+
+@media screen and (max-width: 610px) {
+  #toggle:checked + .hamburger + .nav {
+    position: fixed;
+    width: 400px
+  }
+}
+@media screen and (max-width: 524px) {
+  #toggle:checked + .hamburger + .nav {
+    position: fixed;
+    width: 355px
+  }
+}
+
+@media screen and (max-width: 484px) {
+  #toggle:checked + .hamburger + .nav {
+    width: 279px;
   }
 }
 
@@ -160,17 +187,22 @@ nav a:hover:before {
     left: -174px;
     right: 0;
     bottom: 0;
+    width: 400px
   }
 }
+
+
 
 @media screen and (max-width: 320px) {
   #toggle:checked + .hamburger + .nav {
     transform: translateX(184px);
+    position: absolute;
     z-index: 4;
     top: 0;
-    left: -100%;
+    left: -61%;
     right: 0;
     bottom: 0;
+    width: 320px;
   }
 }
 
