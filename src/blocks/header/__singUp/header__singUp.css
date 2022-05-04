@@ -1,0 +1,19 @@
+.header__singUp {
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 16px;
+
+display: flex;
+align-items: center;
+text-align: right;
+padding-right: 30px;
+
+color: #000000;
+
+text-decoration: none;
+}
+
+.header__singUp:hover {
+    opacity: 0.7;
+}

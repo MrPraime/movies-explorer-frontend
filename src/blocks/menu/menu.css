@@ -1,0 +1,250 @@
+#toggle {
+  display: none;
+}
+
+/**
+    Hamburger
+  **/
+.hamburger {
+  display: flex;
+
+  z-index: 5;
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .hamburger {
+    margin-top: 5px;
+    display: block;
+    position: absolute;
+    left: 90%;
+    top: 1%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .hamburger {
+    left: 87%;
+    top: 1%;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .hamburger {
+    position: absolute;
+    left: 86%;
+    top: 1%;
+  }
+}
+
+.burger {
+  display: flex;
+  width: 28px;
+  height: 3px;
+  border-radius: 3px;
+  background-color: #000000;
+  margin-top: 6.5px;
+  transition: all 0.3s ease-in-out;
+}
+
+/**
+  Nav Styles
+  **/
+.nav {
+  position: fixed;
+  width: 600px;
+  height: 1024px;
+  background-color: white;
+  top: 0;
+  left: 0%;
+  right: -100%;
+  bottom: 0;
+  transition: all 0.3s ease-in-out;
+  transform: scale(0);
+}
+
+@media screen and (max-width: 570px) {
+  .nav {
+    width: 400px;
+  }
+}
+
+@media screen and (max-width: 422px) {
+  .nav {
+    width: 351px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .nav {
+    width: 558px;
+  }
+}
+
+.nav-wrapper {
+  position: relative;
+  overflow-y: auto;
+  height: 100%;
+}
+nav {
+  text-align: left;
+  margin-left: 25%;
+}
+nav a {
+  position: relative;
+  text-decoration: none;
+  color: #6ecddd;
+  font-size: 2em;
+  display: inline-block;
+  margin-top: 1.25em;
+  transition: color 0.2s ease-in-out;
+  letter-spacing: 1px;
+}
+nav a:before {
+  content: "";
+  height: 0;
+  position: absolute;
+  width: 0.25em;
+  background-color: white;
+  left: -0.5em;
+  transition: all 0.2s ease-in-out;
+}
+nav a:hover {
+  color: white;
+}
+nav a:hover:before {
+  height: 100%;
+}
+
+/**
+  Animations
+  **/
+#toggle:checked + .hamburger .top-bun {
+  transform: rotate(-45deg);
+  margin-top: 25px;
+}
+#toggle:checked + .hamburger .bottom-bun {
+  opacity: 0;
+  transform: rotate(45deg);
+}
+#toggle:checked + .hamburger .meat {
+  transform: rotate(45deg);
+  margin-top: -4px;
+}
+
+#toggle:checked + .hamburger + .nav {
+  transform: translateX(184px);
+  z-index: 4;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+@media screen and (max-width: 768px) {
+  #toggle:checked + .hamburger + .nav {
+    transform: translateX(184px);
+    position: absolute;
+    z-index: 4;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 583px;
+  }
+}
+@media screen and (max-width: 767px) {
+  #toggle:checked + .hamburger + .nav {
+    position: fixed;
+
+  }
+}
+
+@media screen and (max-width: 610px) {
+  #toggle:checked + .hamburger + .nav {
+    position: fixed;
+    width: 400px
+  }
+}
+@media screen and (max-width: 524px) {
+  #toggle:checked + .hamburger + .nav {
+    position: fixed;
+    width: 355px
+  }
+}
+
+@media screen and (max-width: 484px) {
+  #toggle:checked + .hamburger + .nav {
+    width: 279px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  #toggle:checked + .hamburger + .nav {
+    transform: translateX(184px);
+    z-index: 4;
+    top: 0;
+    left: -174px;
+    right: 0;
+    bottom: 0;
+    width: 400px
+  }
+}
+
+
+
+@media screen and (max-width: 320px) {
+  #toggle:checked + .hamburger + .nav {
+    transform: translateX(184px);
+    position: absolute;
+    z-index: 4;
+    top: 0;
+    left: -61%;
+    right: 0;
+    bottom: 0;
+    width: 320px;
+  }
+}
+
+/* @media screen and (max-width: 768px) { 
+    .menu {
+        display: flex;
+
+	} 
+} */
+
+.menu__list {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  margin-top: 160px;
+}
+
+.menu__list-item {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  margin-bottom: 28px;
+}
+
+.menu__list-item:last-child {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  margin-top: 160px;
+}
+
+.menu__text {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  color: black;
+  text-decoration: none;
+}
+
+.menu__text:hover {
+  text-decoration: underline;
+}

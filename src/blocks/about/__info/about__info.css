@@ -1,0 +1,16 @@
+.about__info {
+    display: flex;
+    flex-direction: row;
+    max-width: 1140px;
+    justify-content:space-between;
+
+}
+
+@media screen and (max-width: 320px) { 
+	.about__info { 
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 0 auto;
+	} 
+} 

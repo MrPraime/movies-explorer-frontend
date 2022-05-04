@@ -1,0 +1,19 @@
+.student__photo {
+    width: 270px;
+    height: 327px;
+    object-fit: cover;
+}
+
+@media screen and (max-width: 470px) { 
+	.student__photo  { 
+        width: 170px;
+        height: 227px;
+	} 
+}
+
+@media screen and (max-width: 320px) { 
+	.student__photo  { 
+        width: 258px;
+        height: 328px;
+	} 
+}

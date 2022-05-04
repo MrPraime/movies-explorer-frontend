@@ -1,0 +1,12 @@
+.login__input_type_email { 
+    border-bottom: 2px solid #CCCCCC; 
+    background: transparent; 
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    /* identical to box height */
+    
+    
+    color: #000000;
+     
+} 

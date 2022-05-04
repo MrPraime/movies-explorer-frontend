@@ -1,0 +1,5 @@
+@media screen and (max-width: 320px) {
+    .movie__img{
+        width: 100%;
+    }
+}

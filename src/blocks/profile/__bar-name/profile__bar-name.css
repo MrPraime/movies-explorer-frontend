@@ -1,0 +1,21 @@
+.profile__bar-name {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 410px;
+    margin: 0 auto;
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.profile__bar-name:last-child {
+    border-bottom: none;
+}
+
+
+@media screen and (max-width: 320px) { 
+    .profile__bar-name {
+        width: 260px;
+
+	} 
+}

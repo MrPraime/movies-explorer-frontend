@@ -1,0 +1,21 @@
+.tech__list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding-top: 100px;
+    max-width: 702px;
+    justify-content: center;
+    margin: 0 auto;
+    margin-bottom: 100px;
+    list-style-type: none;
+}
+
+@media screen and (max-width: 320px) { 
+	.tech__list  { 
+        padding-top: 50px;
+        flex-direction: initial;
+        flex-wrap: wrap;
+        width: 200px;
+        height: 300px;
+	} 
+}

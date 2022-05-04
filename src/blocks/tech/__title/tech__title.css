@@ -1,0 +1,27 @@
+.tech__title {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 58px;
+
+    text-align: center;
+    letter-spacing: -0.04em;
+
+    color: #000000;
+    max-width: 600px;
+    margin: 0;
+}
+
+
+
+@media screen and (max-width: 768px) { 
+	.tech__title    { 
+	} 
+} 
+
+@media screen and (max-width: 320px) { 
+	.tech__title  { 
+        font-size: 30px;
+        line-height: 36px;
+	} 
+} 

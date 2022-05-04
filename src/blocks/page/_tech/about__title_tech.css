@@ -1,0 +1,10 @@
+.about__title_tech {
+    margin-left: 30px;
+}
+
+@media screen and (max-width: 320px) { 
+	.about__title_tech    { 
+        margin-left: 0;
+
+	} 
+} 

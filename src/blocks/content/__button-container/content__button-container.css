@@ -1,0 +1,26 @@
+.content__button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-self: center;
+    margin: 0;
+    width: 301px;
+    margin-bottom: 30px;
+}
+
+@media screen and (max-width: 768px) {
+	.content__button-container  {
+		max-width: 680px;
+        padding-top: 314px;
+	}
+}
+
+@media screen and (max-width: 320px) {
+	.content__button-container  {
+        padding-top: 212px;
+		max-width: 292px;
+        font-size: 29px;
+        line-height: 37px;
+        width: 260px;
+	}
+}
