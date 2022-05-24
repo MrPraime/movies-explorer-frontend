@@ -53,6 +53,7 @@
     width: 100px;
     height: 100px;
     position: relative;
+    margin: 50px auto;
 }
 
 .preloader__round {
@@ -63,6 +64,10 @@
     left: 0;
     background: #FF6838;
     border-radius: 50px;
+}
+
+.preloader_loaded {
+    display: none;
 }
 
 .preloader__round::after,

@@ -1,22 +1,40 @@
 import React, { useState } from "react";
-import moviesImg from '../images/movie/film1.png';
-import { useLocation } from 'react-router-dom';
 
 
-function MoviesCard() {
-    const { pathname } = useLocation();
-    const [like, putLike] = useState(false);
+const MoviesCard = (props) => {
+
+
+    function handleLikeClick() {
+        props.onLikedClick(props.movie.id);
+    }
+    function handleDeleteClick() {
+        props.onDeleteClick(props.movie.id);
+    }
+
+    const liked = props.movie.liked;
+
 
     return (
-        <div className="movie">
+        <div className="movie" >
             <div className="movie__bar">
-                    <h3 className="movie__title">33 слова о дизайне</h3>
-                    <p className="movie__time">1ч 47м</p>
-                        {pathname == '/movies' ? (     <button onClick={() => putLike(!like)} className={`movie__save-button ${like ? `movie__save-button_type_saved` : ""}`}></button>) : ( 
-                        (pathname === '/saved-movies') &&   <button type="submit" className="movie__del-button"></button>
-                    )} 
+                    <h3 className="movie__title">{props.movieName}</h3>
+                    <p className="movie__time">{props.movieTime}</p>
+
+                {(props.location === "/movies") && (
+                    <>
+                        <button  onClick={handleLikeClick} className={`movie__save-button ${liked ? `movie__save-button_type_saved` : ""}`}></button>
+ 
+                    </>)}
+
+                    {(props.location === "/saved-movies") && (
+                        <button  onClick={handleDeleteClick} className="movie__del-button"></button>
+                )}
+
+                    
+
              </div>
-            <img src={moviesImg} alt="Превью фильма" className="movie__img"/>
+             <a href={props.movieVideo} target="_blank"><img  src={`https://api.nomoreparties.co${props.movieLink}`}alt={props.movieName} className="movie__img"/></a>
+
         </div>
      )
 }

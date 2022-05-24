@@ -1,9 +1,10 @@
 import React from 'react'
-// import '../blocks/preloader/preloader.css'
+import '../blocks/preloader/preloader.css'
 
-const Preloader = () => {
+const Preloader = (props) => {
+    const preloader = `preloader${props.load ? '_loaded' : ''}`   
     return (
-        <div className="preloader">
+        <div className={preloader}>
             <div className="preloader__container">
                 <span className="preloader__round"></span>
             </div>
@@ -12,3 +13,4 @@ const Preloader = () => {
 };
 
 export default Preloader
+

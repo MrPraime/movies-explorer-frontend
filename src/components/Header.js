@@ -31,17 +31,17 @@ return (
                 <Link to={"/"}>
                 <img src={logo} alt="Логотип" className="header__logo" />
                 </Link>
-                <Link to={"movies"} className="header__text">
+                <Link to={"/movies"} className="header__text">
                             <p>Фильмы</p>
                 </Link>
-                <Link to={"saved-movies"} className="header__text">
+                <Link to={"/saved-movies"} className="header__text">
                             <p>Сохранённые фильмы</p>
                 </Link>
             </div>
 
 
             <div className="header__container_right">
-            <Link to={"profile"} className="header__account">
+            <Link to={"/profile"} className="header__account">
                 <button className="header__account">Аккаунт</button>
             </Link>
             <Menu       

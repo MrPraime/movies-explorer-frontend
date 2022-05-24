@@ -2,6 +2,14 @@
     margin-top: 220px;
     background: #000000; 
     border-radius: 2px; 
-    color: white; 
+    color: white;
+    
  
+}
+
+
+
+.login__save-button_auth-page_active:hover {
+    cursor: pointer;
+    opacity: 0.7;
 }
