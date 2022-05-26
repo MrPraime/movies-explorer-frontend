@@ -141,7 +141,6 @@
 
 const mainApi = new MainApi({
     url: 'https://api.diplom.praime.nomoredomains.xyz'
-    //  url: 'http://localhost:3000'
     
   });
 
