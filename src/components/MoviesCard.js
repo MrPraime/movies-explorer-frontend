@@ -20,10 +20,10 @@ const MoviesCard = (props) => {
                     <>
                       <div className="movie__bar">
                             <h3 className="movie__title">{props.movieName}</h3>
-                            <p className="movie__time">{props.movieTime}</p>
+                            <p className="movie__time">{props.movieTime} </p>
                             <button  onClick={handleLikeClick} className={`movie__save-button ${liked ? `movie__save-button_type_saved` : ""}`}></button>
                         </div>
-                        <a href={props.movieVideo} target="_blank"><img  src={`https://api.nomoreparties.co${props.movieLink}`}alt={props.movieName} className="movie__img"/></a>
+                        <a href={props.movieVideo} target="_blank"><img  src={`https://api.nomoreparties.co${props.movieLink}`} alt={props.movieName} className="movie__img"/></a>
 
                     </>)}
 

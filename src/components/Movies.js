@@ -3,7 +3,8 @@ import SeachForm from './SeachForm';
 import MoviesCardList from './MoviesCardList';
 import Footer from "./Footer";
 import Header from "./Header";
-import Preloader from '../components/Preloader'
+import Preloader from '../components/Preloader';
+import MoreMoviesBtn from './moreMoviesBtn';
 
 
 function Movies(props) {
@@ -38,9 +39,11 @@ function Movies(props) {
              <Preloader load={props.load} />
             <p className={classError}>Ничего не найдено</p>
 
-            <div className="movies__more-button">
-                <button className="movies__button" onClick={props.onClick}>Ещё</button>
-            </div>
+            {/* <div className="movies__more-button" >
+                <button className="movies__button"  onClick={props.onClick}>Ещё</button>
+            </div> */}
+
+            <MoreMoviesBtn load={props.load} onClick={props.onClick}/>
         </main>
         <Footer /></>
     )
