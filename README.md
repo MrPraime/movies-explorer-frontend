@@ -1,6 +1,6 @@
 # Домен
 
-[diplom.praime.nomoredomai.nomoredomains.xyz] (diplom.praime.nomoredomai.nomoredomains.xyz)
+[https://diplom.praime.nomoredomai.nomoredomains.xyz/](https://diplom.praime.nomoredomai.nomoredomains.xyz/)
 
 
 
