@@ -13,7 +13,6 @@ import logo from '../images/header/logo.svg';
     const [passwordError, setPasswordError] = useState('Поле не может быть пустым!');
     const [isValid, setIsValid] = useState(false);
 
-
     const activeButtonClassName = `login__save-button login__save-button_auth-page ${isValid ? 'login__save-button_auth-page_active' : ''}`
 
 
@@ -24,8 +23,6 @@ useEffect(() => {
       setIsValid(true)
   }
 }, [emailError, passwordError])
-
-
 
 
 function handleSubmit(e) {
@@ -41,7 +38,6 @@ if (!e.target.value) {
 } else {
   setPasswordError('')
 }
-
 }
 
 const handleChangeEmail = (e) => {
@@ -52,7 +48,6 @@ if ((!e.target.value)) {
   setEmailError('')
 }
 }
-
 
 const handleBlur = (e) => {
 switch (e.target.name) {
