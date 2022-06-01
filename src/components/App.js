@@ -32,7 +32,7 @@ function App() {
   const [errorInputSaved, setInputErrorSaved] = React.useState('');
   const navigate = useNavigate();
   const [shortSavedMovie, setShortSavedMovie] = React.useState([]);
-  const PAGE_WITHOUT_AUTH = ["/sign-in", "/sign-up"]; 
+  const pageWithoAut = ["/sign-in", "/sign-up"]; 
   const location = useLocation();
 
   const jwt = localStorage.getItem("jwt");
@@ -316,30 +316,9 @@ React.useEffect(() => {
 }, [loggedIn])
 
 
-
-/** Проверка токена */
-  // function checkToken() {
-  //   const jwt = localStorage.getItem("jwt");
-  //      if (jwt) {
-  //       mainApi
-  //          .checkToken(jwt)
-  //          .then((data) => {
-  //            setLoggedIn(true);
-     
-  //            navigate("/movies");
-  //          })
-  //          .catch((err) => {
-  //            console.error(err);
-  //          });
-  //      }
-  //    }
-
-
-
-
   function checkToken(path) {
     
-    if (!loggedIn && localStorage.getItem('jwt') && PAGE_WITHOUT_AUTH.includes(path)) {
+    if (!loggedIn && localStorage.getItem('jwt') && pageWithoAut.includes(path)) {
       navigate('/');
     } else  {
         const jwt = localStorage.getItem("jwt");
@@ -426,8 +405,6 @@ React.useEffect(() => {
     
     setLoggedIn(false);
   }
-
-
 
 
 
