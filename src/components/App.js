@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Route, Routes, useNavigate, useRouteMatch } from "react-router-dom";
+import { Route, Routes, useNavigate, useLocation} from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute";
 import CurrentUserContext from "../contexts/CurrentUserContext.js";
 import Main from "./Main";
@@ -32,8 +32,8 @@ function App() {
   const [errorInputSaved, setInputErrorSaved] = React.useState('');
   const navigate = useNavigate();
   const [shortSavedMovie, setShortSavedMovie] = React.useState([]);
-
-
+  const PAGE_WITHOUT_AUTH = ["/sign-in", "/sign-up"]; 
+  const location = useLocation();
 
   const jwt = localStorage.getItem("jwt");
   
@@ -151,18 +151,19 @@ function handleSubmit(event) {
 
 React.useEffect(() => {
   const data = JSON.parse(localStorage.getItem('status'));
-  if (data === null) {
-    setCards([])
-    setСhecked(false)
-    setForm('')
-  } else {
-    setCards(data.movies)
-    setСhecked(data.checked)
-    setForm(data.form)
-    const likedCard = JSON.parse(localStorage.getItem('liked'));
-    if (likedCard === null) {
-      setCards(data.movies);
-    } else setCards(likedCard);
+  
+    if (data === null) {
+      setCards([])
+      setСhecked(false)
+      setForm('')
+    } else {
+      setCards(data.movies)
+      setСhecked(data.checked)
+      setForm(data.form)
+      const likedCard = JSON.parse(localStorage.getItem('liked'));
+      if (likedCard === null) {
+        setCards(data.movies);
+      } else setCards(likedCard);
   }
 }, []);
 
@@ -194,14 +195,17 @@ const handleChangeSaved = (event) => {
 /** лайк и добавление фильма на странице /movies + удаление лайка*/
 
 function handleMovie(id) {
-  const movies = JSON.parse(localStorage.getItem('cards'))
+  const movies = JSON.parse(localStorage.getItem('movie'))
+  
   const cardLiked = cards.find((card) => card.id === id)
   if (cardLiked.liked === true) {
     setCards(
       cards.map((card) =>card.id === id ? { ...card, liked: false } : card,)
     )
     localStorage.setItem('liked', JSON.stringify(cards.map((card) => card.id === id ? { ...card, liked: false } : card,)));
+
     localStorage.setItem('movie', JSON.stringify(movies.map((card) => card.id === id ? { ...card, liked: false } : card,)));
+
     localStorage.setItem('saved', JSON.stringify(movies.map((card) => card.id === id ? { ...card, liked: false } : card,)));
     function savedCard(card) {
       return card._id ;
@@ -215,8 +219,9 @@ function handleMovie(id) {
     })
     .catch((err) => {console.error(err);});
   } else {
-    setCards(
+    setCards(      
       cards.map((card) =>card.id === id ? { ...card, liked: true } : card));
+
     localStorage.setItem('liked', JSON.stringify(cards.map((card) => card.id === id ? { ...card, liked: true } : card,)));
     localStorage.setItem('movie', JSON.stringify(movies.map((card) =>card.id === id ? { ...card, liked: true } : card,)));
     mainApi.saveMovie(cardLiked, jwt)
@@ -239,7 +244,11 @@ function handleDelMovie(id) {
   )
   localStorage.setItem('liked', JSON.stringify(cards.map((card) => card.id === id ? { ...card, liked: false } : card,)));
   localStorage.setItem('movie', JSON.stringify(movies.map((card) => card.id === id ? { ...card, liked: false } : card,)));
-  const savedMoviesFilter = savedCards.find(card => card.id === id)
+
+  function savedCard(card) {
+    return card._id ;
+  }
+  const savedMoviesFilter = savedCards.find(savedCard)
 
   mainApi.removeMovie(savedMoviesFilter._id, jwt)
     .then(() => {
@@ -296,7 +305,7 @@ React.useEffect(() => {
     ])
       .then(([user, cards]) => {
         setCurrentUser(user);
-        setSavedCards(cards.filter(card => card.owner === user._id));
+        setSavedCards(cards.filter(card => card.owner === user._id)); 
         localStorage.setItem('saved', JSON.stringify(cards.filter(card => card.owner === user._id)));
         handleSearchLikedCards([user, cards]);
       })
@@ -309,15 +318,37 @@ React.useEffect(() => {
 
 
 /** Проверка токена */
-  function checkToken() {
-    const jwt = localStorage.getItem("jwt");
-       if (jwt) {
+  // function checkToken() {
+  //   const jwt = localStorage.getItem("jwt");
+  //      if (jwt) {
+  //       mainApi
+  //          .checkToken(jwt)
+  //          .then((data) => {
+  //            setLoggedIn(true);
+     
+  //            navigate("/movies");
+  //          })
+  //          .catch((err) => {
+  //            console.error(err);
+  //          });
+  //      }
+  //    }
+
+
+
+
+  function checkToken(path) {
+    
+    if (!loggedIn && localStorage.getItem('jwt') && PAGE_WITHOUT_AUTH.includes(path)) {
+      navigate('/');
+    } else  {
+        const jwt = localStorage.getItem("jwt");
         mainApi
            .checkToken(jwt)
            .then((data) => {
              setLoggedIn(true);
      
-             navigate("/movies");
+             navigate(path);
            })
            .catch((err) => {
              console.error(err);
@@ -326,7 +357,7 @@ React.useEffect(() => {
      }
    
      React.useEffect(() => {
-       checkToken();
+       checkToken(location.pathname);
      }, []);
    
 
@@ -337,13 +368,14 @@ React.useEffect(() => {
          .register(name, password, email)
          .then(() => {
 
-           navigate("/sign-in");
+          handleUserAuthorization(password, email)
          })
          .catch((err) => {
            console.error(err);
 
          });
      }
+     
    
      /** авторизация пользователя */
      function handleUserAuthorization(password, email) {
@@ -477,7 +509,8 @@ React.useEffect(() => {
             onSubmit={handleUserAuthorization}
           />} />
 
-          <Route exact path="*" element={<NotFound />} />
+          <Route exact path="*" loggedIn={loggedIn} element={<NotFound />} />
+
         </Routes>
       </CurrentUserContext.Provider>
     </div>

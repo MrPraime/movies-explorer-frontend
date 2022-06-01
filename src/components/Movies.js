@@ -12,7 +12,9 @@ function Movies(props) {
 
     return (
         <>
-        <Header />
+        <Header
+        isLoggedIn={props.isLoggedIn}
+        />
         <main className='main'>
             <SeachForm
                 onSubmit={props.onSubmit}
@@ -39,11 +41,7 @@ function Movies(props) {
              <Preloader load={props.load} />
             <p className={classError}>Ничего не найдено</p>
 
-            {/* <div className="movies__more-button" >
-                <button className="movies__button"  onClick={props.onClick}>Ещё</button>
-            </div> */}
-
-            <MoreMoviesBtn load={props.load} onClick={props.onClick}/>
+            <MoreMoviesBtn loadMore={props.loadMore} onClick={props.onClick}/>
         </main>
         <Footer /></>
     )

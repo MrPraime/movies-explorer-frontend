@@ -178,3 +178,6 @@
     margin-top: 30px;
 }
 
+.movies__more-button_active {
+    display: none;
+}

@@ -86,7 +86,10 @@ function Register(props) {
   return (
     <div className="page">
       <div className="header header_type_login">
-        <img src={logo} className="header__logo header__logo_auth-page"></img>
+
+        <Link to={"/"}>
+                   <img src={logo} alt="Логотип" className="header__logo header__logo_auth-page" />
+               </Link>
 
         <div className="profile__tittle profile__tittle_auth-page">
           Добро пожаловать!

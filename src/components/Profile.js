@@ -16,7 +16,6 @@ export default function Profile(props) {
    const activeButtonClassName = `profile__edit ${button ? 'profile__edit_active' : ''}`
 
 
-
 function handleName(e) {
     setName(e.target.value);
     if (e.target.value === currentUser.name) {

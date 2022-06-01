@@ -10,7 +10,7 @@ function Header(props) {
 return (
     <header  className={'header'}>
 
-    {pathname == '/' ? ( 
+    { pathname == '/' ? ( 
               <><Link to={"/"}>
                    <img src={logo} alt="Логотип" className="header__logo" />
                </Link>
@@ -24,7 +24,7 @@ return (
                    </div>
                    </> 
         ) :  ( 
-            (pathname !== '/profile' || pathname !== '/movies' || pathname !== "saved-movies") && 
+            (pathname !== '/profile' || pathname !== '/movie' || pathname !== "saved-movies") && 
            
                 <>           
                  <div className="header__container_left">
@@ -44,9 +44,7 @@ return (
                 <Link to={"/profile"} className="header__account">
                     <button className="header__account">Аккаунт</button>
                 </Link>
-            <Menu       
-                    isLoggedIn={props.isLoggedIn}
-                />
+            <Menu  isLoggedIn={props.isLoggedIn} />
             </div>
 
         </>
@@ -61,3 +59,6 @@ return (
  }
   
 export default Header;
+
+
+
