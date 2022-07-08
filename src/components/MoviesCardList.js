@@ -2,18 +2,18 @@ import React from 'react';
 import MoviesCard from './MoviesCard';
 
 
-const MoviesCardList = (props) => {
+const MoviesCardList = (props) => { 
 
-    
     return (   
         <div className="movies" >  
-        {props.cards.slice(0, props.limit).map((movie, id) => {
+        {props.cards.slice(0, props.limit).map((movie
+        , id
+        ) => {
             return (
                 
                 <MoviesCard
-                    key={id}
-                    
-                    movieName={movie.nameRU}
+                                key={id}                    
+                                movieName={movie.nameRU}
                                 movieLink={movie.image.url}
                                 movieImg={movie.image}
                                 movieTime={movie.duration}
@@ -29,9 +29,8 @@ const MoviesCardList = (props) => {
     </div>
     )
 
+
+
 }
 export default MoviesCardList;
-
-
-
 

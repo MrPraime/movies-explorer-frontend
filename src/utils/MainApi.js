@@ -108,19 +108,21 @@
           }),
       })
           .then(this._checkResponse)  }
-  
 
-    removeMovie(id, jwt) {
-        return fetch(`${this._url}/movies/${id}`, {
-            method: "DELETE",
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${jwt}`,
-            },
-        })
-            .then(this._checkResponse)
-            
-    }
+
+    removeMovie(_id, jwt) {
+      return fetch(`${this._url}/movies/${_id}`, {
+          method: "DELETE",
+          headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${jwt}`,
+          },
+      })
+          .then(this._checkResponse)
+          
+  }
+
+
 
 
     getSavedMovies(jwt) {
@@ -145,7 +147,3 @@ const mainApi = new MainApi({
   });
 
   export default mainApi
-
-
-
-

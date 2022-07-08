@@ -17,9 +17,6 @@
         transition: all .2s ease-in-out;
   }
   
-  .seach__checkbox:checked{
-	background: #2BE080;
-  }
   
 .seach__checkbox:after{
 	position: absolute;
@@ -37,6 +34,13 @@
 	transition: all .2s ease-in-out;
   }
   
- .seach__checkbox:checked:after{
-	left: 48%;
+
+
+
+  .seach__checkbox_checked {
+    background: #2BE080;
   }
+
+  .seach__checkbox_checked:after{
+    left: 48%;
+    }

@@ -32,7 +32,7 @@ function App() {
   const [errorInputSaved, setInputErrorSaved] = React.useState('');
   const navigate = useNavigate();
   const [shortSavedMovie, setShortSavedMovie] = React.useState([]);
-  const pageWithoAut = ["/sign-in", "/sign-up"]; 
+  const pageWithoAut = ["/sign-in", "/sign-up" , "/"]; 
   const location = useLocation();
 
   const jwt = localStorage.getItem("jwt");
@@ -65,7 +65,6 @@ function App() {
   }
 
 /*определяем сколько карточек загрузить в зависимости от размера экрана*/
-
   function addMoreMovies() {
       if (size > 880) {
         setLimit((prevLimit) => prevLimit + 3);
@@ -177,18 +176,8 @@ function handleСheckedClick() {
   localStorage.setItem('status', JSON.stringify({
     'movies': cards,
     'checked': !checked,
-    'form': form
+    'form': form  
   }))
-}
-
-/** ошибка пустой поисковой строки  */
-const handleChangeSaved = (event) => {
-  setFormSaved(event.target.value);
-  if (!event.target.value) {
-    setInputErrorSaved('Нужно ввести ключевое слово')
-  } else {
-    setInputError('')
-  };
 }
 
 
@@ -198,32 +187,30 @@ function handleMovie(id) {
   const movies = JSON.parse(localStorage.getItem('movie'))
   
   const cardLiked = cards.find((card) => card.id === id)
+
   if (cardLiked.liked === true) {
-    setCards(
-      cards.map((card) =>card.id === id ? { ...card, liked: false } : card,)
-    )
+    setCards(cards.map((card) => card.id === id ? { ...card, liked: false } : card,))
     localStorage.setItem('liked', JSON.stringify(cards.map((card) => card.id === id ? { ...card, liked: false } : card,)));
-
     localStorage.setItem('movie', JSON.stringify(movies.map((card) => card.id === id ? { ...card, liked: false } : card,)));
-
     localStorage.setItem('saved', JSON.stringify(movies.map((card) => card.id === id ? { ...card, liked: false } : card,)));
-    function savedCard(card) {
-      return card._id ;
-    }
-    const savedMoviesFilter = savedCards.find(savedCard)
 
+    function savedCard(card) {
+      return card._id;
+  }
+    const savedMoviesFilter = savedCards.find(savedCard)
+    
     mainApi.removeMovie(savedMoviesFilter._id, jwt)
     .then(() => {
       setSavedCards((state) => state.filter((c) => c._id !== savedMoviesFilter._id));
       localStorage.setItem('saved', JSON.stringify((state) => state.filter((c) => c._id !== savedMoviesFilter._id)));
-    })
-    .catch((err) => {console.error(err);});
+    }) .catch((err) => {console.error(err);});
+
   } else {
     setCards(      
-      cards.map((card) =>card.id === id ? { ...card, liked: true } : card));
-
+      cards.map((card) => card.id === id ? { ...card, liked: true } : card));
     localStorage.setItem('liked', JSON.stringify(cards.map((card) => card.id === id ? { ...card, liked: true } : card,)));
     localStorage.setItem('movie', JSON.stringify(movies.map((card) =>card.id === id ? { ...card, liked: true } : card,)));
+    
     mainApi.saveMovie(cardLiked, jwt)
       .then((newCard) => {
         setSavedCards([newCard, ...savedCards]);
@@ -233,34 +220,33 @@ function handleMovie(id) {
   }
 }
 
-
-/** Удаление фильма из сохраненных фильмов  */
-function handleDelMovie(id) {
+function handleSetStatus(id) {
   const movies = JSON.parse(localStorage.getItem('movie'))
-  setCards(
-    cards.map((card) =>
-      card.id === id ? { ...card, liked: false } : card
-    )
-  )
+
+  setCards(cards.map((card) => card.id === id ? { ...card, liked: false } : card))
+
   localStorage.setItem('liked', JSON.stringify(cards.map((card) => card.id === id ? { ...card, liked: false } : card,)));
   localStorage.setItem('movie', JSON.stringify(movies.map((card) => card.id === id ? { ...card, liked: false } : card,)));
+  localStorage.setItem('saved', JSON.stringify(movies.map((card) => card.id === id ? { ...card, liked: false } : card,)));
 
-  function savedCard(card) {
-    return card._id ;
-  }
-  const savedMoviesFilter = savedCards.find(savedCard)
-
-  mainApi.removeMovie(savedMoviesFilter._id, jwt)
-    .then(() => {
-      setSavedCards((state) => state.filter((c) => c._id !== savedMoviesFilter._id));
-      localStorage.setItem('saved', JSON.stringify((state) => state.filter((c) => c._id !== savedMoviesFilter._id)));
-    })
-    .catch((err) => {
-      console.error(err);
-
-    });
 }
 
+/** Удаление фильма из сохраненных фильмов  */
+
+function handleDelMovie(movieId) {
+
+  const savedMoviesFilter = savedCards.find(card => card.movieId === movieId)
+  handleSetStatus(movieId)
+
+mainApi.removeMovie(savedMoviesFilter._id, jwt)
+.then(() => {
+  setSavedCards((state) => state.filter((c) => c.movieId !== savedMoviesFilter.movieId));
+})
+.catch((err) => {
+  console.error(err);
+
+});
+}
 
 
 function handleSearchLikedCards([user, cards]) {
@@ -296,6 +282,12 @@ function handleСheckedClickSaved() {
   setСheckedSaved((prev) => !prev)
 }
 
+
+const handleChangeSaved = (event) => {
+  setFormSaved(event.target.value);
+  
+}
+
 /*ответ от всех промисов */
 React.useEffect(() => {
   if (loggedIn) {
@@ -304,8 +296,8 @@ React.useEffect(() => {
       mainApi.getSavedMovies(jwt)
     ])
       .then(([user, cards]) => {
-        setCurrentUser(user);
-        setSavedCards(cards.filter(card => card.owner === user._id)); 
+        setCurrentUser(user); 
+        setSavedCards(cards.filter(card => card.owner === user._id));
         localStorage.setItem('saved', JSON.stringify(cards.filter(card => card.owner === user._id)));
         handleSearchLikedCards([user, cards]);
       })
@@ -388,6 +380,7 @@ React.useEffect(() => {
     };
 
 
+
    /*ЛогАут */
    function handleSignOutClick() {
     localStorage.removeItem('jwt');
@@ -412,7 +405,8 @@ React.useEffect(() => {
     <div className="page">
       <CurrentUserContext.Provider value={currentUser}>
         <Routes>
-          <Route exact path="/" element={<Main />} />
+          
+          <Route exact path="/"  element={<Main loggedIn={loggedIn} />} />
 
           <Route
             exact
@@ -428,13 +422,12 @@ React.useEffect(() => {
                   cards={checked ? shortMovie : cards}
                   checkbox={checked}
                   errorInput={errorInput}
-                  onLikedClick={handleMovie}
-                  handleDeleteMovie={handleDelMovie}
-                  
+                  onLikedClick={handleMovie}                  
                   onClick={addMoreMovies}
                   onInputClick={handleСheckedClick}
                   onChange={handleChange}
                   onSubmit={handleSubmit}
+                  loggedIn={loggedIn}
                 />
               </ProtectedRoute>
             }
@@ -446,18 +439,18 @@ React.useEffect(() => {
             element={
               <ProtectedRoute loggedIn={loggedIn}>
                 <SavedMovies
-                  cards={checkedSaved ? shortSavedMovie : savedCards}
-                  limit={limit}
-                  error={error}
-                  form={formSaved}
-                  checkbox={checkedSaved}
-                  onChange={handleChangeSaved}
-                  onInputClick={handleСheckedClickSaved}
-                  onSubmit={handleSubmitSavedMovies}
-                  load={load}
-                  errorInput={errorInputSaved}
-                  onDeleteClick={handleDelMovie}
-                  loadMore={loadMore}
+                cards={checkedSaved ? shortSavedMovie : savedCards}
+                limit={limit}
+                error={error}
+                form={formSaved}
+                checkbox={checkedSaved}
+                onChange={handleChangeSaved}
+                onInputClick={handleСheckedClickSaved}
+                onSubmit={handleSubmitSavedMovies}
+                onDeleteClick={handleDelMovie}
+                load={load}
+                errorInput={errorInputSaved}
+                  loggedIn={loggedIn}
 
                 />
               </ProtectedRoute>
@@ -470,8 +463,9 @@ React.useEffect(() => {
             element={
               <ProtectedRoute loggedIn={loggedIn}>
                 <Profile
-                onUpdateUser={handleUpdateUser}
-                signOut={handleSignOutClick}
+                    onUpdateUser={handleUpdateUser}
+                    signOut={handleSignOutClick}
+                    loggedIn={loggedIn}
                  />
               </ProtectedRoute>
             }

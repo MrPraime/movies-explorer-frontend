@@ -8,8 +8,9 @@ import Preloader from '../components/Preloader'
 function SavedMovies(props) {
     const classError = `movies-cards__error${props.error ? '_active' : ''}`
     return (
-        <>
-        <Header />
+        <><Header 
+        isLoggedIn={props.loggedIn}
+        />
         <main className='main'>
             <SeachForm
                 form={props.form}

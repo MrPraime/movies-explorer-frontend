@@ -6,10 +6,13 @@ import Footer from "./Footer";
 import Header from "./Header";
 
 
-export default function Main() {
+export default function Main(props) {
     return (
 
-        <><Header /><main className='main'>
+        <><Header 
+        isLoggedIn={props.loggedIn}
+        />
+        <main className='main'>
             <Content />
             <About />
             <Tech />

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React  from "react";
 
 
 const MoviesCard = (props) => {
@@ -8,10 +8,15 @@ const MoviesCard = (props) => {
         props.onLikedClick(props.movie.id);
     }
     function handleDeleteClick() {
-        props.onDeleteClick(props.movie.id);
+        props.onDeleteClick(props.movie.movieId);
     }
 
     const liked = props.movie.liked;
+
+    const cardLikeButtonClassName = `movie__save-button ${liked ? `movie__save-button_type_saved` : ""}`
+
+
+    
     return (
         <div className="movie" >
 
@@ -21,7 +26,7 @@ const MoviesCard = (props) => {
                       <div className="movie__bar">
                             <h3 className="movie__title">{props.movieName}</h3>
                             <p className="movie__time">{props.movieTime} </p>
-                            <button  onClick={handleLikeClick} className={`movie__save-button ${liked ? `movie__save-button_type_saved` : ""}`}></button>
+                            <button  onClick={handleLikeClick} className={cardLikeButtonClassName}></button>
                         </div>
                         <a href={props.movieVideo} target="_blank"><img  src={`https://api.nomoreparties.co${props.movieLink}`} alt={props.movieName} className="movie__img"/></a>
 
@@ -46,6 +51,3 @@ const MoviesCard = (props) => {
      )
 }
 export default MoviesCard;
-
-
-

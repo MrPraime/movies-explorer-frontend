@@ -11,9 +11,8 @@ function Movies(props) {
     const classError = `movies-cards__error${props.error ? '_active' : ''}`
 
     return (
-        <>
-        <Header
-        isLoggedIn={props.isLoggedIn}
+        <><Header 
+        isLoggedIn={props.loggedIn}
         />
         <main className='main'>
             <SeachForm
