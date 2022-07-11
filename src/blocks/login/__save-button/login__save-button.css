@@ -1,0 +1,49 @@
+.login__save-button { 
+	margin: 0 auto; 
+
+	width: 396px; 
+	height: 45px; 
+	background: #000000; 
+	border-radius: 2px; 
+	color: #FFFFFF; 
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+	margin-top: 30px; 
+	margin-bottom: 16px; 
+	transition: opacity .2s; 
+	padding: 0; 
+} 
+ 
+/* .login__save-button:hover { 
+	opacity: 0.8; 
+	cursor: pointer; 
+}  */
+ 
+@media screen and (max-width: 768px) { 
+	.login__save-button { 
+		max-width: 580px; 
+	} 
+} 
+ 
+@media screen and (max-width: 470px) { 
+	.login__save-button { 
+		width: 238px; 
+		height: 46px; 
+		font-size: 14px; 
+		line-height: 17px; 
+		margin-bottom: 25px; 
+		margin-top: 15px; 
+	} 
+} 
+
+@media screen and (max-width: 320px) { 
+	.login__save-button { 
+		width: 260px; 
+		height: 45px; 
+		font-size: 12px;
+		line-height: 15px;
+		margin-bottom: 25px; 
+		margin-top: 15px; 
+	} 
+} 

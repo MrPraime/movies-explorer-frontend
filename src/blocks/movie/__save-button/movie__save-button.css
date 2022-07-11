@@ -1,0 +1,48 @@
+.movie__save-button {
+    margin-left: 50px;
+    width: 30px;
+    height: 30px;
+    background-color: E8E8E8;
+    border: none;
+    border-radius: 50%;
+    background-image: url(../../../images/movie/bookmate1.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.movie__save-button:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+@media screen and (max-width: 768px) { 
+    .movie__save-button {
+        top: -40px;
+        right: -296px;
+    }
+ }
+
+ 
+
+ /* @media screen and (max-width: 386px) { 
+    .movie__save-button {
+        top: -43px;
+        right: -256px;
+    }
+ }
+
+
+
+@media screen and (max-width: 320px) { 
+    .movie__save-button {
+        top: -38px;
+        right: -259px;
+    }
+ } */
+
+
+ @media screen and (max-width: 362px) { 
+    .movie__save-button{
+        margin-left: 88px;
+    }
+}

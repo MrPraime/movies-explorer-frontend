@@ -1,0 +1,24 @@
+.movie__del-button {
+    margin-left: 50px;
+    width: 30px;
+    height: 30px;
+    background-color: E8E8E8;
+    border: none;
+    border-radius: 50%;
+
+    background-image: url(../../../images/movie/close-button.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.movie__del-button:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+
+ @media screen and (max-width: 362px) { 
+    .movie__del-button {
+        margin-left: 88px;
+    }
+}

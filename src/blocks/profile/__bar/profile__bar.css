@@ -1,0 +1,7 @@
+.profile__bar {
+    margin: 0 auto;
+    max-width: 1140px;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+}

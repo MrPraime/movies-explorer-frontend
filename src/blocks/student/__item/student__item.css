@@ -1,0 +1,17 @@
+ .student__item {
+    padding-top: 20px;
+    padding-bottom: 19px;
+    border-bottom: 1px solid #E8E8E8;
+
+    background-image: url(../../../images/student/arrow.svg);
+    background-repeat: no-repeat;
+    background-position: right;
+
+    text-decoration: none;
+    max-width: 1140px;
+ }
+
+ .student__item:last-child {
+    border-bottom: none;
+
+ }

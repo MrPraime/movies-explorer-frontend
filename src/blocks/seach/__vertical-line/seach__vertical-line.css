@@ -1,0 +1,15 @@
+.seach__vertical-line {
+    margin-left: 30px;
+    align-self: center;
+    width: 1px;
+    background-color: #E8E8E8;
+    height: 40px;
+    float: left; 
+
+}
+
+@media screen and (max-width: 590px) { 
+    .seach__vertical-line {
+        display: none;
+	} 
+}

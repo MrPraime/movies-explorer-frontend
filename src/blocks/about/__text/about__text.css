@@ -1,0 +1,25 @@
+.about__text {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #000000;
+    margin: 0;
+    padding-top: 26px;
+}
+
+@media screen and (max-width: 768px) { 
+	.about__text    { 
+        font-size: 12px;
+        line-height: 15px;
+        padding-top: 22px;
+	} 
+} 
+
+@media screen and (max-width: 320px) { 
+	.about__text    { 
+        font-size: 11px;
+        line-height: 16px;
+        padding-top: 16px;
+	} 
+} 

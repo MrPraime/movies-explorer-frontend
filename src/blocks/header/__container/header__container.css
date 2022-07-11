@@ -1,0 +1,16 @@
+.header__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    width: 1140px;
+}
+
+@media screen and (max-width: 768px) { 
+    .header__container {
+
+	} 
+}
+
+.header__container_left {
+    display: flex;
+}
