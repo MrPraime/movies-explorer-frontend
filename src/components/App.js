@@ -32,9 +32,16 @@ function App() {
   const [errorInputSaved, setInputErrorSaved] = React.useState('');
   const navigate = useNavigate();
   const [shortSavedMovie, setShortSavedMovie] = React.useState([]);
-  const pageWithoAut = ["/sign-in", "/sign-up" , "/"]; 
+  const PAGE_WITHOUT_AUTH = ["/sign-in", "/sign-up"];  
   const location = useLocation();
+  const [infoTooltip, setInfoTooltip] = React.useState(false);
+  const [infoTooltipOpen, setInfoTooltipOpen] = React.useState(false);
+  const [infoTooltipLogin, setInfoTooltipLogin] = React.useState(false);
+  const [infoTooltipOpenLogin, setInfoTooltipLoginOpen] = React.useState(false);
+  const [infoTooltipRegister, setInfoTooltipRegister] = React.useState(false);
+  const [infoTooltipOpenRegister, setInfoTooltipRegisterOpen] = React.useState(false);
 
+  
   const jwt = localStorage.getItem("jwt");
   
   document.body.onload = function () {
@@ -296,7 +303,8 @@ React.useEffect(() => {
       mainApi.getSavedMovies(jwt)
     ])
       .then(([user, cards]) => {
-        setCurrentUser(user); 
+        setCurrentUser(user);
+  
         setSavedCards(cards.filter(card => card.owner === user._id));
         localStorage.setItem('saved', JSON.stringify(cards.filter(card => card.owner === user._id)));
         handleSearchLikedCards([user, cards]);
@@ -310,7 +318,8 @@ React.useEffect(() => {
 
   function checkToken(path) {
     
-    if (!loggedIn && localStorage.getItem('jwt') && pageWithoAut.includes(path)) {
+    if (!loggedIn && localStorage.getItem('jwt') && PAGE_WITHOUT_AUTH.includes(path)) {
+
       navigate('/');
     } else  {
         const jwt = localStorage.getItem("jwt");
@@ -326,6 +335,11 @@ React.useEffect(() => {
            });
        }
      }
+
+
+
+
+
    
      React.useEffect(() => {
        checkToken(location.pathname);
@@ -334,35 +348,55 @@ React.useEffect(() => {
 
   
     //  /** регистрация пользователя */
+
      function handleUserRegister(name, password, email) {
       mainApi
          .register(name, password, email)
-         .then(() => {
+        .then(() => {
+          if (password, email) {
+            setInfoTooltipRegisterOpen(true);
+            setInfoTooltipRegister(true);
+            handleUserAuthorization(password, email)
+          
+          } else {
+            console.log("Ошибка при регистрации!");
+            setInfoTooltipRegisterOpen(true);
+            setInfoTooltipRegister(false);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+          setInfoTooltipRegisterOpen(true);
+          setInfoTooltipRegister(false);
+        });
+    };
 
-          handleUserAuthorization(password, email)
-         })
-         .catch((err) => {
-           console.error(err);
 
-         });
-     }
-     
    
      /** авторизация пользователя */
+
      function handleUserAuthorization(password, email) {
       mainApi
          .authorization(password, email)
          .then((data) => {
-           localStorage.setItem("jwt", data.token);
-           setLoggedIn(true);
-           navigate("/movies");
-           getAllMovies();
-           return data.token
-         })
-         .catch((err) => {
-           console.error(err);
-         });
-     }
+          if (data.token) {
+            localStorage.setItem("jwt", data.token);
+            setLoggedIn(true);
+            navigate("/movies");
+            getAllMovies();
+            return data.token
+          } else {
+            setInfoTooltipLoginOpen(true);
+            setInfoTooltipLogin(false);
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+          setInfoTooltipLoginOpen(true);
+          setInfoTooltipLogin(false);
+        });
+    };
+
 
 
      /*Обновление информации о пользователе */
@@ -372,12 +406,24 @@ React.useEffect(() => {
       mainApi
         .patchUserInfo(name, email, jwt)
         .then((newUser) => {
+
+          if (newUser) {
+          setInfoTooltipOpen(true);
+          setInfoTooltip(true);
           setCurrentUser(newUser);
+        } else {
+
+          setInfoTooltipOpen(true);
+          setInfoTooltip(false);
+        }
         })
         .catch((err) => {
           console.error(err);
         })
     };
+
+
+
 
 
 
@@ -406,7 +452,8 @@ React.useEffect(() => {
       <CurrentUserContext.Provider value={currentUser}>
         <Routes>
           
-          <Route exact path="/"  element={<Main loggedIn={loggedIn} />} />
+          <Route  loggedIn={loggedIn} exact path="/"  element={<Main loggedIn={loggedIn} />} />
+          
 
           <Route
             exact
@@ -466,6 +513,8 @@ React.useEffect(() => {
                     onUpdateUser={handleUpdateUser}
                     signOut={handleSignOutClick}
                     loggedIn={loggedIn}
+                    onInfoTooltip={infoTooltip} 
+                    infoTooltipOpen={infoTooltipOpen}
                  />
               </ProtectedRoute>
             }
@@ -473,11 +522,15 @@ React.useEffect(() => {
 
           <Route exact path="/sign-up" element={<Register
               onSubmit={handleUserRegister}
+              onInfoTooltip={infoTooltipRegister} 
+              infoTooltipOpen={infoTooltipOpenRegister}
           />} />
 
           <Route exact path="/sign-in" 
           element={<Login
             onSubmit={handleUserAuthorization}
+            onInfoTooltip={infoTooltipLogin} 
+            infoTooltipOpen={infoTooltipOpenLogin}
           />} />
 
           <Route exact path="*" loggedIn={loggedIn} element={<NotFound />} />
@@ -489,3 +542,7 @@ React.useEffect(() => {
 }
 
 export default App;
+
+
+
+

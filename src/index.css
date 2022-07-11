@@ -181,3 +181,39 @@
 .movies__more-button_active {
     display: none;
 }
+
+.profile__info{
+    display: none;
+}
+
+.profile__info_active{
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #FF4062;
+}
+
+.register__info{
+    display: none;
+}
+
+.register__info_active{
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #FF4062;
+}
+
+.login__info{
+    display: none;
+}
+
+.login__info_active{
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #FF4062;
+}

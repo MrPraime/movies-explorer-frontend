@@ -4,13 +4,12 @@ import logo from '../images/header/logo.svg';
 import Menu from './Menu';
 
 
-
 function Header(props) {
 
         return (
             <header  className={'header'}>
         
-            { props.isLoggedIn ? ( 
+                { props.isLoggedIn ? ( 
                               <>           
                               <div className="header__container_left">
                                  <Link to={"/"}>

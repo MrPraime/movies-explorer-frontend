@@ -14,6 +14,7 @@ import logo from '../images/header/logo.svg';
     const [isValid, setIsValid] = useState(false);
 
     const activeButtonClassName = `login__save-button login__save-button_auth-page ${isValid ? 'login__save-button_auth-page_active' : ''}`
+    const activeInfoClassName = `login__info${props.infoTooltipOpen ? '_active' : ''}`
 
 
 useEffect(() => {
@@ -102,6 +103,7 @@ switch (e.target.name) {
           onBlur={e => handleBlur(e)}
         />
       {(wrongPassword && passwordError) && <span className="input-error">{passwordError}</span>}
+      {!props.onInfoTooltip && (<p className={activeInfoClassName}>Что-то пошло не так! Попробуйте ещё раз.</p>)}
         <button
           className={activeButtonClassName}
           type="submit"

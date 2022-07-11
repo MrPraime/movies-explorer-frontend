@@ -12,6 +12,7 @@ export default function Profile(props) {
   const [disabled, setDisabled] = React.useState(true);
  
    const activeButtonClassName = `profile__edit ${button ? 'profile__edit_active' : ''}`
+   const activeInfoClassName = `profile__info${props.infoTooltipOpen ? '_active' : ''}`
 
 
    function handleName(e) { 
@@ -71,6 +72,15 @@ function signOut() {
                     <input type="email" className="profile__input" name="email" placeholder="12345@ya.ru" id="email-input" required minLength="2" maxLength="40"  value={`${email}`} onChange={handleEmail}/>
                     <span className="about-input-error popup__input-error"></span>
                 </div>
+
+                {props.onInfoTooltip
+                        ? (
+                            <p className={activeInfoClassName}>Вы успешно изменили профиль!</p>
+                        )
+                        : (
+                            <p className={activeInfoClassName}>Что-то не так. Попробуйте ещё раз.</p>
+                        )}
+
                 <button  className={activeButtonClassName} disabled={disabled} onClick={handleSubmit}>Редактировать</button>
             </form>
 

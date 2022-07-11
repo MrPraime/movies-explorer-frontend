@@ -136,8 +136,6 @@
             .then(this._checkResponse)
     }
 
-
-
     
 } 
 

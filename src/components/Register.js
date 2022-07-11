@@ -17,7 +17,7 @@ function Register(props) {
     const [isValid, setIsValid] = useState(false);
 
     const activeButtonClassName = `login__save-button login__save-button_auth-page ${isValid ? 'login__save-button_auth-page_active' : ''}`
-
+    const activeInfoClassName = `register__info${props.infoTooltipOpen ? '_active' : ''}`
  
 
 
@@ -135,6 +135,13 @@ function Register(props) {
           onBlur={e => handleBlur(e)}
         />
       {(wrongPassword && passwordError) && <span className="input-error">{passwordError}</span>}
+      {props.onInfoTooltip
+                        ? (
+                            <p className={activeInfoClassName}>Вы успешно зарегистрировались!</p>
+                        )
+                        : (
+                            <p className={activeInfoClassName}>Что-то пошло не так! Попробуйте ещё раз.</p>
+                        )}
         <button
           className={activeButtonClassName}
           type="submit"
@@ -144,6 +151,8 @@ function Register(props) {
           Зарегистрироваться
         </button>
       </form>
+
+
 
       <p className="login__text">
         Уже зарегистрированы?

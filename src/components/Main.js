@@ -6,7 +6,7 @@ import Footer from "./Footer";
 import Header from "./Header";
 
 
-export default function Main(props) {
+ function Main(props) {
     return (
 
         <><Header 
@@ -20,3 +20,5 @@ export default function Main(props) {
         </main><Footer /></>
     )
 }
+
+export default Main; 
